@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>YT DOWNLOADER</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #0c1733;
+      color: #ffffff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .container {
+      width: 90%;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #1a2a50;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      background-color: #3d5af1;
+      text-align: center;
+      padding: 15px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #ffffff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    h3:hover {
+      background-color: #304daa;
+    }
+
+    .tab-content {
+      background-color: #1a2a50;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .tab-content h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #ffffff;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .tab-content p {
+      text-align: justify;
+      line-height: 1.9;
+      letter-spacing: 0.4px;
+      margin-top: 15px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .tab-content div {
+      display: none;
+    }
+
+    .tab-content .active {
+      display: block;
+    }
+
+    .tabs .active {
+      background-color: #3d5af1;
+    }
+
+    .link {
+      width: calc(100% - 20px);
+      height: 44px;
+      margin-top: 15px;
+      text-align: center;
+      border: 2px solid #3d5af1;
+      border-radius: 5px;
+      padding: 5px 10px;
+      color: #ffffff;
+      background-color: #1a2a50;
+    }
+
+    .btn {
+      width: 100%;
+      color: #ffffff;
+      height: 45px;
+      outline: none;
+      border: none;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 30px 0 5px 0;
+      border-radius: 5px;
+      background: #3d5af1;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #304daa;
+    }
+  
+  #img1 {
+    border-radius: 10%;
+    display: inline-block;   
+    margin-top: 25px 0px;
+  }
+  
+  .a{
+    text-decoration: none;
+    color:#808080;
+  }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="tabs">
+      <h3 class="active">VIDEO</h3>
+      <h3>THUMBNAIL</h3>
+    </div>
+    
+    
+    
+    <div align="center">
+      <h2></h2>
+    </div>
+
+    <div class="tab-content">
+      <div class="active">
+        <h1>YOUTUBE VIDEO</h1>
+        <p>Download videos and playlists from YouTube quickly.</p>
+        <input type="text" class="link" placeholder="PLACE YOUR YOUTUBE LINK HERE">
+        <button class="btn" onclick="video()">GET</button>
+      </div>
+
+      <div>
+        <h1>YOUTUBE VIDEO THUMBNAIL</h1>
+        <p>Download high-quality thumbnails from YouTube.</p>
+        <input type="text" class="link" placeholder="PLACE YOUR YOUTUBE LINK HERE">
+        <button class="btn" onclick="video()">GET</button>
+      </div>
+    </div>
+    
+    <div align="center">
+      <p class=""><a href="#" class="a">Web Design: &copy CodeLikeWyna2024</a></p>
+      </div>
+    
+    
+  </div>
+  
+ 
+
+  <script>
+    let tabs = document.querySelectorAll(".tabs h3");
+    let tabContents = document.querySelectorAll(".tab-content div");
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        tabContents.forEach((content) => {
+          content.classList.remove("active");
+        });
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+        });
+        tabContents[index].classList.add("active");
+        tabs[index].classList.add("active");
+      });
+    });
+
+    var link = document.querySelector(".link");
+
+    function video() {
+      if (link.value != "") {
+        if (link.value.indexOf("https://youtu.be/") != -1) {
+          var YTurl = link.value.replace("https://youtu.be/", "https://000tube.com/watch?v=");
+          window.open(YTurl, "_bhank");
+        } else {
+          var YTurl = link.value.replace("you", "000");
+          window.open(YTurl, "_bhank");
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
